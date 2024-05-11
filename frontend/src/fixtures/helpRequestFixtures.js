@@ -1,6 +1,5 @@
 const helpRequestFixtures = {
-    oneRequest: 
-    [
+    oneHelpRequest: 
         {
             "id": 1,
             "requesterEmail": "aidenpham@ucsb.edu",
@@ -10,11 +9,10 @@ const helpRequestFixtures = {
             "explanation": "Swagger",
             "solved": false, 
         },
-    ],
-    threeRequests:
+    threeHelpRequests:
     [
         {
-            "id": 2,
+            "id": 1,
             "requesterEmail": "cgaucho@ucsb.edu",
             "teamId": "s24-4pm-2",
             "tableOrBreakoutRoom": "13",
@@ -23,7 +21,7 @@ const helpRequestFixtures = {
             "solved": false, 
         },
         {
-            "id": 3,
+            "id": 2,
             "requesterEmail": "cyang@ucsb.edu",
             "teamId": "s24-5pm-1",
             "tableOrBreakoutRoom": "9",
@@ -32,7 +30,7 @@ const helpRequestFixtures = {
             "solved": false, 
         },
         {
-            "id": 4,
+            "id": 3,
             "requesterEmail": "phtcon@ucsb.edu",
             "teamId": "s24-5pm-5",
             "tableOrBreakoutRoom": "4",
