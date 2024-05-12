@@ -11,7 +11,7 @@ export default function MenuItemReviewCreatePage({storybook=false}) {
     method: "POST",
     params: {
      itemID: review.itemID,
-     reviwerEmail: review.reviewerEmail,
+     reviewerEmail: review.reviewerEmail,
      stars: review.stars,
      comments: review.comments,
      dateReviewed: review.dateReviewed
@@ -19,7 +19,7 @@ export default function MenuItemReviewCreatePage({storybook=false}) {
   });
 
   const onSuccess = (review) => {
-    toast(`New Menu Item Review Created - id: ${review.id} name: ${review.name}`);
+    toast(`New Menu Item Review Created - id: ${review.id} Reviewer Email: ${review.reviewerEmail}`);
   }
 
   const mutation = useBackendMutation(

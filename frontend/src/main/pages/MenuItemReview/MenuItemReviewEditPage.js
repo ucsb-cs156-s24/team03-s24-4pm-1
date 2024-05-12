@@ -28,13 +28,16 @@ export default function MenuItemReviewEditPage({storybook=false}) {
             id: review.id,
         },
         data: {
-            name: review.name,
-            description: review.description,
+            itemID: review.itemID,
+            reviewerEmail: review.reviewerEmail,
+            comments: review.comments,
+            stars: review.stars,
+            dateReviewed: review.dateReviewed
         }
     });
 
     const onSuccess = (review) => {
-        toast(`Menu Item Review Updated - id: ${review.id} name: ${review.name}`);
+        toast(`Menu Item Review Updated - id: ${review.id} Reviewer Email: ${review.reviewerEmail}`);
     }
 
     const mutation = useBackendMutation(

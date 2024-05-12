@@ -134,7 +134,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             <Form.Control
                                 data-testid={testIdPrefix + "-dateReviewed"}
                                 id="dateReviewed"
-                                type="datetime-local"
+                                type="text"
                                 isInvalid={Boolean(errors.dateReviewed)}
                                 {...register("dateReviewed", { required: true, pattern: isodate_regex})}
                             />
