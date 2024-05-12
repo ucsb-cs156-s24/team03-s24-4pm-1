@@ -51,13 +51,6 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
-              {
-                hasRole(currentUser, "ROLE_ADMIN") && (
-                  <NavDropdown title="Menu Item Review" id="appnavbar-menu-item-review-dropdown" data-testid="appnavbar-menu-item-review-dropdown" >
-                    <NavDropdown.Item href="/admin/users">Users</NavDropdown.Item>
-                  </NavDropdown>
-                )
-              }
             </Nav>
             {
               currentUser && currentUser.loggedIn && (
@@ -65,6 +58,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   <Nav.Link as={Link} to="/restaurants">Restaurants</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
+                  <Nav.Link as={Link} to="/menuitemreview">Menu Item Review</Nav.Link>
                 </>
               )
             }
