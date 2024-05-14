@@ -1,26 +1,24 @@
-# STARTER-team03
+# team03-s24-4pm-1
 
 Instructions: <https://ucsb-cs156.github.io/s24/lab/team03.html>
 
-TODO: change heading above to your repo name, e.g. `# team03-s24-4pm-4`
 
-TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
 Deployments:
 
-* Prod: <https://team03.dokku-17.cs.ucsb.edu>
-* QA: <https://team03-qa.dokku-17.cs.ucsb.edu>
+* Prod: <https://team03-prod.dokku-01.cs.ucsb.edu/>
+* QA: <https://team03-qa.dokku-01.cs.ucsb.edu/>
 
 TODO: Fill in this table with correct information. 
 
-| Table                     | Name         | Github Id |
-|---------------------------|--------------|-----------|
-| UCSBDiningCommonsMenuItem |              |           |
-| UCSBOrganization          |              |           |
-| RecommendationRequest     |              |           |
-| MenuItemReview            |              |           |
-| HelpRequest               |              |           |
-| Articles                  |              |           |
+| Table                       | Team Member  | Github Id       |
+|-----------------------------|--------------|-----------------|
+| `UCSBDiningCommonsMenuItem` | Ruizhe       | RuizheJiang     |
+| `UCSBOrganization`          | Frank        | Frank404NotFound|
+| `RecommendationRequest`     | Monica       | monicatrinh1    |
+| `MenuItemReview`            | Eric         | ericknee        |
+| `HelpRequest`               | Aiden        | phamaiden       |
+| `Articles`                  | Luis         | miguel-luis9    |
 
 Remember though, that in spite of these initial  assignments, it is still
 a team project.  Please help other team members to finish their work
@@ -30,21 +28,6 @@ after completing your own.
 * Java: 17
 * node: 16.20.0
 See [docs/versions.md](docs/versions.md) for more information on upgrading versions.
-
-# Brief overview of starter code 
-
-TODO: remove this header and content of this section before submitting.
-However leave the section `# Overview of application` and its content 
-intact.
-
-The starter code here starts with a base similar to `team02`, but with 
-some extra frontend code on top of the of backend CRUD operations
-that were present in `team02`.
-
-You can use this code as a basis to:
-* Add the backend code from team02 *in stages* as suggested in the issues (doing that in "one giant pull request" is *not recommended) 
-* Add a frontend on top of the backend CRUD features you added in team02, using the existing
-  code as examples.
 
 # Overview of application
 
