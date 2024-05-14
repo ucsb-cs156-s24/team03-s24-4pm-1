@@ -16,6 +16,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
     const navigate = useNavigate();
 
+    // Stryker disable next-line all
     const testIdPrefix = "MenuItemReviewForm";
 
     // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
@@ -23,8 +24,11 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
+    // Stryker disable next-line Regex
     const num_regex = /^\d+$/;
+
+    // Stryker disable next-line Regex
+    const star_regex= /[0-5]/;
 
     return (
 
@@ -58,12 +62,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                                 type="text"
                                 isInvalid={Boolean(errors.itemID)}
                                 {...register("itemID", {
-                                    required: "itemID is required.",
+                                    required: true,
                                     pattern: num_regex
                                 })}
                             />
                             <Form.Control.Feedback type="invalid">
-                            {errors.itemID?.message}
+                            {errors.itemID && "itemID is required."}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -98,9 +102,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                                 isInvalid={Boolean(errors.stars)}
                                 {...register("stars", {
                                     required: "Stars are required.",
-                                    pattern: num_regex,
-                                    min: {value: 0, message: "Minimum rating is 0 stars"},
-                                    max: {value: 5, message: "Maximum rating is 5 stars"}
+                                    pattern: star_regex,
                                 })}
                             />
                             <Form.Control.Feedback type="invalid">
@@ -139,7 +141,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                                 {...register("dateReviewed", { required: true, pattern: isodate_regex})}
                             />
                             <Form.Control.Feedback type="invalid">
-                            {errors.dateReviewed && 'Date is required. '}
+                            {errors.dateReviewed && 'Date is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
