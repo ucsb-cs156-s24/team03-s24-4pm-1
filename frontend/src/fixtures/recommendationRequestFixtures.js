@@ -1,43 +1,44 @@
 const recommendationRequestFixtures = {
     oneRequest: {
         "id": 1,
-        "requesterEmail": "cgaucho@ucsb.edu",
-        "professorEmail": "phtcon@ucsb.edu",
-        "explanation": "BS/MS program",
-        "dateRequested": "2022-04-20T00:00:00",
-        "dateNeeded": "2022-05-01T00:00:00",
-        "done": "false"
+        "requestorEmail":"dakotabarnes@ucsb.edu",
+        "professorEmail":"yoga@ucsb.edu",
+        "explanation":"Need Rec ASAP",
+        "dateRequested":"2024-01-02T12:00:00",
+        "dateNeeded":"2024-01-05T12:00:00",
+        "done":"true"
     },
     threeRequests: [
         {
             "id": 1,
-            "requesterEmail": "cgaucho@ucsb.edu",
-            "professorEmail": "phtcon@ucsb.edu",
-            "explanation": "BS/MS program",
-            "dateRequested": "2022-04-20T00:00:00",
-            "dateNeeded": "2022-05-01T00:00:00",
-            "done": "false"
+            "requestorEmail":"dakotabarnes@ucsb.edu",
+            "professorEmail":"yoga@ucsb.edu",
+            "explanation":"Need Rec ASAP",
+            "dateRequested":"2024-01-02T12:00:00",
+            "dateNeeded":"2024-01-05T12:00:00",
+            "done":"true"
         },
         {
             "id": 2,
-            "requesterEmail": "ldelplaya@ucsb.edu",
-            "professorEmail": "richert@ucsb.edu",
-            "explanation": "PhD CS Stanford",
-            "dateRequested": "2022-05-20T00:00:00",
-            "dateNeeded": "2022-11-15T00:00:00",
-            "done": "false"
+            "requestorEmail":"dakota@casabarnes.com",
+            "professorEmail":"sawyeeRicee@ucsb.edu",
+            "explanation":"How long should I put in cooker for",
+            "dateRequested":"2023-01-02T12:00:00",
+            "dateNeeded":"2023-01-05T12:00:00",
+            "done":"false"
         },
         {
             "id": 3,
-            "requesterEmail": "ldelplaya@ucsb.edu",
-            "professorEmail": "phtcon@ucsb.edu",
-            "explanation": "PhD CS Stanford",
-            "dateRequested": "2022-05-20T00:00:00",
-            "dateNeeded": "2022-11-05T00:00:00",
-            "done": "false"
+            "requestorEmail":"db@ucsb.edu",
+            "professorEmail":"conrad@ucsb.edu",
+            "explanation":"Yo, hit my line g",
+            "dateRequested":"2022-01-02T12:00:00",
+            "dateNeeded":"2022-01-05T12:00:00",
+            "done":"true"
         }
     ]
 };
+
 
 
 export { recommendationRequestFixtures };
