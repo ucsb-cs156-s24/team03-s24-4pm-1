@@ -60,15 +60,15 @@ describe("UCSBOrganizationForm tests", () => {
 
         expect(await screen.findByTestId(`${testId}-orgCode`)).toBeInTheDocument();
         expect(screen.getByText(`orgCode`)).toBeInTheDocument();
-        expect(screen.getByTestId(`${testId}-orgCode`)).toHaveValue("TT");
+        expect(screen.getByTestId(`${testId}-orgCode`)).toHaveValue("ZPR");
 
         expect(await screen.findByTestId(`${testId}-orgTranslationShort`)).toBeInTheDocument();
         expect(screen.getByText(`orgTranslationShort`)).toBeInTheDocument();
-        expect(screen.getByTestId(`${testId}-orgTranslationShort`)).toHaveValue("Theta Tau");
+        expect(screen.getByTestId(`${testId}-orgTranslationShort`)).toHaveValue("ZETA PHI RHO");
 
         expect(await screen.findByTestId(`${testId}-orgTranslation`)).toBeInTheDocument();
         expect(screen.getByText(`orgTranslation`)).toBeInTheDocument();
-        expect(screen.getByTestId(`${testId}-orgTranslation`)).toHaveValue("Theta Tau");
+        expect(screen.getByTestId(`${testId}-orgTranslation`)).toHaveValue("ZETA PHI RHO");
 
         expect(await screen.findByTestId(`${testId}-inactive`)).toBeInTheDocument();
         expect(screen.getByText(`inactive`)).toBeInTheDocument();
