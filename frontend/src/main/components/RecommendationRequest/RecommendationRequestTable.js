@@ -1,4 +1,3 @@
-
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
@@ -7,12 +6,12 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/Recommendat
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function RecommendationRequestsTable({ requests, currentUser }) {
+export default function RecommendationRequestTable({ requests, currentUser }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/recommendationrequest/edit/${cell.row.values.id}`)
+        navigate(`/recommendationrequests/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -20,7 +19,7 @@ export default function RecommendationRequestsTable({ requests, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/recommendationrequest/all"]
+        ["/api/recommendationrequests/all"]
     );
     // Stryker restore all 
 
@@ -34,11 +33,11 @@ export default function RecommendationRequestsTable({ requests, currentUser }) {
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'RequesterEmail',
-            accessor: 'requesterEmail',
+            Header: 'Requestor Email',
+            accessor: 'requestorEmail',
         },
         {
-            Header: 'ProfessorEmail',
+            Header: 'Professor Email',
             accessor: 'professorEmail',
         },
         {
@@ -46,11 +45,11 @@ export default function RecommendationRequestsTable({ requests, currentUser }) {
             accessor: 'explanation',
         },
         {
-            Header: 'DateRequested',
+            Header: 'Date Requested',
             accessor: 'dateRequested',
         },
         {
-            Header: 'DateNeeded',
+            Header: 'Date Needed',
             accessor: 'dateNeeded',
         },
         {
@@ -60,13 +59,13 @@ export default function RecommendationRequestsTable({ requests, currentUser }) {
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestsTable"));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestsTable"));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
     } 
 
     return <OurTable
         data={requests}
         columns={columns}
-        testid={"RecommendationRequestsTable"}
+        testid={"RecommendationRequestTable"}
     />;
 };
