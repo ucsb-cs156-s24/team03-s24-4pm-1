@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface RecommendationRequestRepository extends CrudRepository<RecommendationRequest, Long> {
+public interface RecommendationRequestRepository extends CrudRepository<RecommendationRequest, Long> {}
+  
 
-}

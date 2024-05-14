@@ -1,44 +1,43 @@
 const recommendationRequestFixtures = {
     oneRequest: {
         "id": 1,
-        "requestorEmail":"dakotabarnes@ucsb.edu",
-        "professorEmail":"yoga@ucsb.edu",
-        "explanation":"Need Rec ASAP",
-        "dateRequested":"2024-01-02T12:00:00",
-        "dateNeeded":"2024-01-05T12:00:00",
-        "done":"true"
+        "requesterEmail": "jdoe@ucsb.edu",
+        "professorEmail": "phtcon@ucsb.edu",
+        "explanation": "BS Degree",
+        "dateRequested": "2022-01-01T12:00:00",
+        "dateNeeded": "2022-01-03T12:00:00",
+        "done": false
     },
     threeRequests: [
         {
             "id": 1,
-            "requestorEmail":"dakotabarnes@ucsb.edu",
-            "professorEmail":"yoga@ucsb.edu",
-            "explanation":"Need Rec ASAP",
-            "dateRequested":"2024-01-02T12:00:00",
-            "dateNeeded":"2024-01-05T12:00:00",
-            "done":"true"
+            "requesterEmail": "jdoe@ucsb.edu",
+            "professorEmail": "phtcon@ucsb.edu",
+            "explanation": "BS/MS Degree",
+            "dateRequested": "2022-01-01T12:00:00",
+            "dateNeeded": "2022-01-03T12:00:00",
+            "done": false
         },
         {
             "id": 2,
-            "requestorEmail":"dakota@casabarnes.com",
-            "professorEmail":"sawyeeRicee@ucsb.edu",
-            "explanation":"How long should I put in cooker for",
-            "dateRequested":"2023-01-02T12:00:00",
-            "dateNeeded":"2023-01-05T12:00:00",
-            "done":"false"
+            "requesterEmail": "adoc@ucsb.edu",
+            "professorEmail": "phcon@ucsb.edu",
+            "explanation": "BS/MS Degree",
+            "dateRequested": "2024-01-06T12:00:00",
+            "dateNeeded": "2024-11-03T12:00:00",
+            "done": true
         },
         {
             "id": 3,
-            "requestorEmail":"db@ucsb.edu",
-            "professorEmail":"conrad@ucsb.edu",
-            "explanation":"Yo, hit my line g",
-            "dateRequested":"2022-01-02T12:00:00",
-            "dateNeeded":"2022-01-05T12:00:00",
-            "done":"true"
+            "requesterEmail": "gdac@ucsb.edu",
+            "professorEmail": "phon@ucsb.edu",
+            "explanation": "MS Degree",
+            "dateRequested": "2024-03-06T12:00:00",
+            "dateNeeded": "2024-05-03T12:00:00",
+            "done": true
         }
     ]
 };
-
 
 
 export { recommendationRequestFixtures };

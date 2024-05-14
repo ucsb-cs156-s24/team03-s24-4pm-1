@@ -1,17 +1,17 @@
 import React from 'react';
-import RecommendationRequestTable from "main/components/RecommendationRequest/RecommendationRequestTable";
+import RecommendationRequestsTable from "main/components/RecommendationRequests/RecommendationRequestsTable";
 import { recommendationRequestFixtures } from 'fixtures/recommendationRequestFixtures';
 import { currentUserFixtures } from 'fixtures/currentUserFixtures';
 import { rest } from "msw";
 
 export default {
-    title: 'components/RecommendationRequest/RecommendationRequestTable',
-    component: RecommendationRequestTable
+    title: 'components/RecommendationRequests/RecommendationRequestsTable',
+    component: RecommendationRequestsTable
 };
 
 const Template = (args) => {
     return (
-        <RecommendationRequestTable {...args} />
+        <RecommendationRequestsTable {...args} />
     )
 };
 
