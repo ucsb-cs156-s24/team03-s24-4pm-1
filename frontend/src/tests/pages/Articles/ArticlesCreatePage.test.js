@@ -55,11 +55,11 @@ describe("ArticlesCreatePage tests", () => {
         const queryClient = new QueryClient();
         const article = {
             id: 3,
-            title: "Learn CS Now",
-            url: "learnCS.com",
-            explanation: "Learning CS with instructions",
-            email: "learningCS@gmail.com",
-            dateAdded: "2024-02-02T21:41:59"
+            title: "UCSBNews",
+            url: "ucsbNews.com",
+            explanation: "Learn UCSB News",
+            email: "luismiguel@gmail.com",
+            dateAdded: "2024-02-02T10:41:59"
         };
 
         axiosMock.onPost("/api/articles/post").reply( 202, article );
@@ -85,11 +85,11 @@ describe("ArticlesCreatePage tests", () => {
 
         const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-        fireEvent.change(titleField, { target: { value: 'Learn CS Now' } });
-        fireEvent.change(urlField, { target: { value: 'learnCS.com' } });
-        fireEvent.change(explanationField, { target: { value: 'Learning CS with instructions' } });
-        fireEvent.change(emailField, { target: { value: 'learningCS@gmail.com' } });
-        fireEvent.change(dateAddedField, { target: { value: '2024-02-02T21:41:59' } });
+        fireEvent.change(titleField, { target: { value: 'UCSBNews' } });
+        fireEvent.change(urlField, { target: { value: 'ucsbNews.com' } });
+        fireEvent.change(explanationField, { target: { value: 'Learn UCSB News' } });
+        fireEvent.change(emailField, { target: { value: 'luismiguel@gmail.com' } });
+        fireEvent.change(dateAddedField, { target: { value: '2024-02-02T10:41:59' } });
 
         expect(submitButton).toBeInTheDocument();
 
@@ -99,14 +99,14 @@ describe("ArticlesCreatePage tests", () => {
 
         expect(axiosMock.history.post[0].params).toEqual(
             {
-                title: "Learn CS Now",
-                url: "learnCS.com",
-                explanation: "Learning CS with instructions",
-                email: "learningCS@gmail.com",
-                dateAdded: "2024-02-02T21:41:59.000"
+                title: "UCSBNews",
+                url: "ucsbNews.com",
+                explanation: "Learn UCSB News",
+                email: "luismiguel@gmail.com",
+                dateAdded: "2024-02-02T10:41:59.000"
         });
 
-        expect(mockToast).toBeCalledWith("New Articles Created - id: 3 title: Learn CS Now");
+        expect(mockToast).toBeCalledWith("New Articles Created - id: 3 title: UCSBNews");
         expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
     });
 

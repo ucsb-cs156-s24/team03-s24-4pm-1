@@ -71,10 +71,10 @@ describe("ArticlesTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Top 10 Colleges");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("UCSBNews");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Bottom 10 Colleges");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("GoletaNews");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -111,10 +111,10 @@ describe("ArticlesTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Top 10 Colleges");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("UCSBNews");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Bottom 10 Colleges");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("GoletaNews");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -136,7 +136,7 @@ describe("ArticlesTable tests", () => {
 
     // assert - check that the expected content is rendered
     expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Top 10 Colleges");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("UCSBNews");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -164,7 +164,7 @@ describe("ArticlesTable tests", () => {
 
     // assert - check that the expected content is rendered
     expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Top 10 Colleges");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("UCSBNews");
 
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();

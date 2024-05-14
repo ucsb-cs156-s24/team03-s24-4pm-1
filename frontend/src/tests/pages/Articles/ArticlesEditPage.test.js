@@ -76,19 +76,19 @@ describe("ArticlesEditPage tests", () => {
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
             axiosMock.onGet("/api/articles", { params: { id: 17 } }).reply(200, {
                 id: 17,
-                title: 'test article',
-                url: "test.com",
+                title: 'Editing',
+                url: "editing.com",
                 explanation: "testing edit article",
-                email: "testing@gmail.com",
-                dateAdded: "2022-03-14T15:00"
+                email: "editing@gmail.com",
+                dateAdded: "2024-03-14T15:00"
             });
             axiosMock.onPut('/api/articles').reply(200, {
                 id: "17",
-                title: 'test article2',
-                url: "test2.com",
+                title: 'Editing2',
+                url: "editing2.com",
                 explanation: "testing edit article 2",
-                email: "testing2@gmail.com",
-                dateAdded: "2022-12-25T08:00"
+                email: "editing2@gmail.com",
+                dateAdded: "2024-12-25T08:00"
             });
         });
 
@@ -117,18 +117,18 @@ describe("ArticlesEditPage tests", () => {
 
             const idField = screen.getByTestId("ArticlesForm-id");
             const titleField = screen.getByTestId("ArticlesForm-title");
-            const urField = screen.getByTestId("ArticlesForm-url");
+            const urlField = screen.getByTestId("ArticlesForm-url");
             const explanationField = screen.getByTestId("ArticlesForm-explanation");
             const emailField = screen.getByTestId("ArticlesForm-email");
             const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
             const submitButton = screen.getByTestId("ArticlesForm-submit");
 
             expect(idField).toHaveValue("17");
-            expect(titleField).toHaveValue("test article");
-            expect(urField).toHaveValue("test.com");
+            expect(titleField).toHaveValue("Editing");
+            expect(urlField).toHaveValue("editing.com");
             expect(explanationField).toHaveValue("testing edit article");
-            expect(emailField).toHaveValue("testing@gmail.com");
-            expect(dateAddedField).toHaveValue("2022-03-14T15:00");
+            expect(emailField).toHaveValue("editing@gmail.com");
+            expect(dateAddedField).toHaveValue("2024-03-14T15:00");
             expect(submitButton).toBeInTheDocument();
         });
 
@@ -146,43 +146,43 @@ describe("ArticlesEditPage tests", () => {
 
             const idField = screen.getByTestId("ArticlesForm-id");
             const titleField = screen.getByTestId("ArticlesForm-title");
-            const urField = screen.getByTestId("ArticlesForm-url");
+            const urlField = screen.getByTestId("ArticlesForm-url");
             const explanationField = screen.getByTestId("ArticlesForm-explanation");
             const emailField = screen.getByTestId("ArticlesForm-email");
             const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
             const submitButton = screen.getByTestId("ArticlesForm-submit");
 
             expect(idField).toHaveValue("17");
-            expect(titleField).toHaveValue("test article");
-            expect(urField).toHaveValue("test.com");
+            expect(titleField).toHaveValue("Editing");
+            expect(urlField).toHaveValue("editing.com");
             expect(explanationField).toHaveValue("testing edit article");
-            expect(emailField).toHaveValue("testing@gmail.com");
-            expect(dateAddedField).toHaveValue("2022-03-14T15:00");
+            expect(emailField).toHaveValue("editing@gmail.com");
+            expect(dateAddedField).toHaveValue("2024-03-14T15:00");
 
             expect(submitButton).toHaveTextContent("Update");
             expect(submitButton).toBeInTheDocument();
 
-            fireEvent.change(titleField, { target: { value: 'new article' } })
-            fireEvent.change(urField, { target: { value: 'newArticle.com' } })
-            fireEvent.change(explanationField, { target: { value: 'make a change' } })
-            fireEvent.change(emailField, { target: { value: 'newArticle@gmail.com' } })
-            fireEvent.change(dateAddedField, { target: { value: "2022-12-25T08:00" } })
+            fireEvent.change(titleField, { target: { value: 'New Edit' } })
+            fireEvent.change(urlField, { target: { value: 'officialNews.com' } })
+            fireEvent.change(explanationField, { target: { value: 'Official News site' } })
+            fireEvent.change(emailField, { target: { value: 'officialNews@gmail.com' } })
+            fireEvent.change(dateAddedField, { target: { value: "2024-12-25T08:00" } })
 
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("Article Updated - id: 17 title: test article2");
+            expect(mockToast).toBeCalledWith("Article Updated - id: 17 title: Editing2");
             expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
 
-            expect(axiosMock.history.put.length).toBe(1); // times called
+            expect(axiosMock.history.put.length).toBe(1);
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
-                title: 'new article',
-                url: "newArticle.com",
-                explanation: 'make a change',
-                email: "newArticle@gmail.com",
-                dateAdded: "2022-12-25T08:00"
-            })); // posted object
+                title: 'New Edit',
+                url: "officialNews.com",
+                explanation: 'Official News site',
+                email: "officialNews@gmail.com",
+                dateAdded: "2024-12-25T08:00"
+            }));
 
         });
 

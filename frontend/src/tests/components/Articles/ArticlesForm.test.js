@@ -1,7 +1,9 @@
-import { render, waitFor, fireEvent, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
+
 import ArticlesForm from "main/components/Articles/ArticlesForm";
 import { articlesFixtures } from "fixtures/articlesFixtures";
-import { BrowserRouter as Router } from "react-router-dom";
+
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const mockedNavigate = jest.fn();
@@ -11,13 +13,13 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockedNavigate
 }));
 
-
 describe("ArticlesForm tests", () => {
     const queryClient = new QueryClient();
 
     const expectedHeaders = ["Title", "Url", "Explanation", "Email", "Date Added"];
     const testId = "ArticlesForm";
-    test("renders correctly with no initial contents", async () => {
+
+    test("renders correctly with no initialContents", async () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
@@ -33,27 +35,24 @@ describe("ArticlesForm tests", () => {
         });
     });
 
-
-    test("renders correctly when passing in a Article", async () => {
-
+    test("renders correctly when passing in initialContents", async () => {
         render(
             <QueryClientProvider client={queryClient}>
-                <Router  >
+                <Router>
                     <ArticlesForm initialContents={articlesFixtures.oneArticle} />
                 </Router>
             </QueryClientProvider>
         );
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
-        
+
         expectedHeaders.forEach((headerText) => {
             const header = screen.getByText(headerText);
             expect(header).toBeInTheDocument();
         });
 
-        expect(await screen.findByTestId(/ArticlesForm-id/)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
         expect(screen.getByText(`Id`)).toBeInTheDocument();
     });
-    
 
 
     test("that navigate(-1) is called when Cancel is clicked", async () => {
@@ -80,6 +79,8 @@ describe("ArticlesForm tests", () => {
                 </Router>
             </QueryClientProvider>
         );
+
+
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
         const submitButton = screen.getByText(/Create/);
         fireEvent.click(submitButton);

@@ -1,28 +1,28 @@
-const ucsbDatesFixtures = {
+const articlesFixtures = {
     oneArticle: {
         "id": 1,
         "title": "UCSBNews",
-        "url": "Blank",
+        "url": "ucsbNews.com",
         "explanation": "News of UCSB",
         "email": "luismiguel@ucsb.edu",
-        "dateAdded": "2022-01-02T12:00:00"
+        "dateAdded": "2024-02-02T10:41:59"
     },
     threeArticles: [
         {
             "id": 1,
             "title": "UCSBNews",
-            "url": "Blank",
+            "url": "ucsbNews.com",
             "explanation": "News of UCSB",
             "email": "luismiguel@ucsb.edu",
-            "dateAdded": "2022-01-02T12:00:00"
+            "dateAdded": "2024-02-02T10:41:59"
         },
         {
             "id": 2,
             "title": "GoletaNews",
-            "url": "Blank",
+            "url": "goletaNews.com",
             "explanation": "News of Goleta",
             "email": "luismiguel@ucsb.edu",
-            "dateAdded": "2022-04-03T12:00:00"
+            "dateAdded": "2024-04-03T12:00:00"
         },
         {
             "id": 3,
@@ -36,4 +36,4 @@ const ucsbDatesFixtures = {
 };
 
 
-export { ucsbDatesFixtures };
+export { articlesFixtures };

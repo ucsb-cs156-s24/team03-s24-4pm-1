@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import PlaceholderIndexPage from "main/pages/Articles/ArticlesIndexPage";
+import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -42,5 +42,3 @@ describe("PlaceholderIndexPage tests", () => {
     });
 
 });
-
-
