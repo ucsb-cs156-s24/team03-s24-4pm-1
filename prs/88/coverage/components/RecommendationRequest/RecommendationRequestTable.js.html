@@ -133,9 +133,7 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,8 +203,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-import React from "react";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 &nbsp;
 import { useBackendMutation } from "main/utils/useBackend";
@@ -214,12 +211,12 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/Recommendat
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >RecommendationRequestsTable(</span>{ requests, currentUser }) {
+export default function <span class="fstat-no" title="function not covered" >RecommendationRequestTable(</span>{ requests, currentUser }) {
 &nbsp;
     const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
 &nbsp;
     const editCallback = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(c</span>ell) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        navigate(`/recommendationrequest/edit/${cell.row.values.id}`)</span>
+<span class="cstat-no" title="statement not covered" >        navigate(`/recommendationrequests/edit/${cell.row.values.id}`)</span>
     }
 &nbsp;
     // Stryker disable all : hard to test for query caching
@@ -227,7 +224,7 @@ export default function <span class="fstat-no" title="function not covered" >Rec
     const deleteMutation = <span class="cstat-no" title="statement not covered" >useBackendMutation(</span>
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/recommendationrequest/all"]
+        ["/api/recommendationrequests/all"]
     );
     // Stryker restore all 
 &nbsp;
@@ -241,11 +238,11 @@ export default function <span class="fstat-no" title="function not covered" >Rec
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'RequesterEmail',
-            accessor: 'requesterEmail',
+            Header: 'Requestor Email',
+            accessor: 'requestorEmail',
         },
         {
-            Header: 'ProfessorEmail',
+            Header: 'Professor Email',
             accessor: 'professorEmail',
         },
         {
@@ -253,11 +250,11 @@ export default function <span class="fstat-no" title="function not covered" >Rec
             accessor: 'explanation',
         },
         {
-            Header: 'DateRequested',
+            Header: 'Date Requested',
             accessor: 'dateRequested',
         },
         {
-            Header: 'DateNeeded',
+            Header: 'Date Needed',
             accessor: 'dateNeeded',
         },
         {
@@ -267,14 +264,14 @@ export default function <span class="fstat-no" title="function not covered" >Rec
     ];
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (hasRole(currentUser, "ROLE_ADMIN")) {</span>
-<span class="cstat-no" title="statement not covered" >        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestsTable"));</span>
-<span class="cstat-no" title="statement not covered" >        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestsTable"));</span>
+<span class="cstat-no" title="statement not covered" >        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"));</span>
+<span class="cstat-no" title="statement not covered" >        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));</span>
     } 
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return &lt;OurTable</span>
         data={requests}
         columns={columns}
-        testid={"RecommendationRequestsTable"}
+        testid={"RecommendationRequestTable"}
     /&gt;;
 };</pre></td></tr></table></pre>
 
@@ -283,7 +280,7 @@ export default function <span class="fstat-no" title="function not covered" >Rec
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 13 2024 22:29:39 GMT-0700 (Pacific Daylight Time)
+                at Mon May 13 2024 22:47:44 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
