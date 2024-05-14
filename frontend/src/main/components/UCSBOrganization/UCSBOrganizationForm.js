@@ -1,3 +1,4 @@
+
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -43,6 +44,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                                     message: "Max length 10 characters"
                                 }
                             })}
+                            disabled={initialContents}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.orgCode?.message}
@@ -51,7 +53,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="orgTranslationShort">orgTranslationShort</Form.Label>
+                        <Form.Label htmlFor="orgTranslationShort">OrgTranslationShort</Form.Label>
                         <Form.Control
                             data-testid={testIdPrefix + "-orgTranslationShort"}
                             id="orgTranslationShort"
@@ -73,7 +75,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Row>
             <Row>
                 <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
+                    <Form.Label htmlFor="orgTranslation">OrgTranslation</Form.Label>
                     <Form.Control
                         data-testid={testIdPrefix + "-orgTranslation"}
                         id="orgTranslation"
@@ -90,7 +92,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Row>
             <Row>
                 <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="inactive">inactive</Form.Label>
+                    <Form.Label htmlFor="inactive">Inactive</Form.Label>
                     <Form.Select
                         data-testid={testIdPrefix + "-inactive"}
                         id="inactive"
