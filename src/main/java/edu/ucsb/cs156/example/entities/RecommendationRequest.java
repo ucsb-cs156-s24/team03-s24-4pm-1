@@ -17,14 +17,15 @@ import lombok.Builder;
 @NoArgsConstructor
 @Builder
 @Entity(name = "recommendationrequests")
-public class RecommendationRequest {
+public class RecommendationRequest{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
-  String requesterEmail;
-  String professorEmail;
-  String explanation;
-  LocalDateTime dateRequested;
-  LocalDateTime dateNeeded;
-  boolean done;
+
+  private String requesterEmail;
+  private String professorEmail;
+  private String explanation;
+  private LocalDateTime dateRequested;
+  private LocalDateTime dateNeeded;
+  private boolean done;
 }

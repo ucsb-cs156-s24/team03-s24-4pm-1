@@ -1,4 +1,3 @@
-
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
@@ -7,7 +6,7 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/Recommendat
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function RecommendationRequestsTable({ requests, currentUser }) {
+export default function RecommendationRequestTable({ recommendationrequests, currentUser }) {
 
     const navigate = useNavigate();
 
@@ -20,7 +19,7 @@ export default function RecommendationRequestsTable({ requests, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/recommendationrequest/all"]
+        ["/api/recommendationrequests/all"]
     );
     // Stryker restore all 
 
@@ -55,18 +54,18 @@ export default function RecommendationRequestsTable({ requests, currentUser }) {
         },
         {
             Header: 'Done',
-            accessor: 'done',
+            accessor: (row, _rowIndex) => String(row.done),
         }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestsTable"));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestsTable"));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
     } 
 
     return <OurTable
-        data={requests}
+        data={recommendationrequests}
         columns={columns}
-        testid={"RecommendationRequestsTable"}
+        testid={"RecommendationRequestTable"}
     />;
 };
