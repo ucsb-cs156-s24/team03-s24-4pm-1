@@ -1,42 +1,32 @@
 
-// public class UCSBOrganization {
-//     @Id
-//     private String orgCode;
-//     private String orgTranslationShort;
-//     private String orgTranslation;
-//     private boolean inactive;
-// SKY	SKYDIVING CLUB	SKYDIVING CLUB AT UCSB	false
-// OSLI	STUDENT LIFE	OFFICE OF STUDENT LIFE	false
-// KRC	KOREAN RADIO CL	KOREAN RADIO CLUB	false
-
 const ucsbOrganizationFixtures = {
     oneOrganization:
     [
         {
-            "orgCode": "ZPR",
-            "orgTranslationShort": "ZETA PHI RHO",
-            "orgTranslation": "ZETA PHI RHO",
+            "orgCode": "TT",
+            "orgTranslationShort": "Theta Tau",
+            "orgTranslation": "Theta Tau",
             "inactive": false
         }
     ],
     threeOrganizations:
     [
         {
-            "orgCode": "SKY",
-            "orgTranslationShort": "SKYDIVING CLUB",
-            "orgTranslation": "SKYDIVING CLUB AT UCSB",
+            "orgCode": "AKP",
+            "orgTranslationShort": "Alpha Kapa Psi",
+            "orgTranslation": "Alpha Kapa Psi fraternity",
             "inactive": false
         },
         {
-            "orgCode": "OSLI",
-            "orgTranslationShort": "STUDENT LIFE",
-            "orgTranslation": "OFFICE OF STUDENT LIFE",
-            "inactive": false
+            "orgCode": "APX",
+            "orgTranslationShort": "Alpha Rho Chi",
+            "orgTranslation": "Alpha Rho Chi fraternity",
+            "inactive": true
         },
         {
-            "orgCode": "KRC",
-            "orgTranslationShort": "KOREAN RADIO CL",
-            "orgTranslation": "KOREAN RADIO CLUB",
+            "orgCode": "AXO",
+            "orgTranslationShort": "Alpha Chi Omega",
+            "orgTranslation": "Alpha Chi Omega fraternity",
             "inactive": false
         }
     ]
