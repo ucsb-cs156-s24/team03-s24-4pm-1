@@ -12,20 +12,20 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "recommendationrequests")
-public class RecommendationRequest{
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+@Entity(name="MENUITEMREVIEW")
+public class MenuItemReview {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-  private String requesterEmail;
-  private String professorEmail;
-  private String explanation;
-  private LocalDateTime dateRequested;
-  private LocalDateTime dateNeeded;
-  private boolean done;
+    private long itemID;
+    private String reviewerEmail;
+    private int stars;
+    private String comments;
+    private LocalDateTime dateReviewed;
 }
