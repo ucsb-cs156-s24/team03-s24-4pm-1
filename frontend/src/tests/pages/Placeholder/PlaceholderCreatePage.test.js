@@ -39,5 +39,3 @@ describe("PlaceholderCreatePage tests", () => {
     });
 
 });
-
-

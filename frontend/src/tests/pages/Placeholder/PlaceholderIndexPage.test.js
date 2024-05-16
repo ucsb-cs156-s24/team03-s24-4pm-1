@@ -42,5 +42,3 @@ describe("PlaceholderIndexPage tests", () => {
     });
 
 });
-
-

@@ -51,6 +51,14 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
+              {
+                hasRole(currentUser, "ROLE_ADMIN") && (
+                  <NavDropdown title="Articles" id="appnavbar-articles-dropdown" data-testid="appnavbar-articles-dropdown" >
+                    <NavDropdown.Item href="/articles/list">List Articles</NavDropdown.Item>
+                    {/* <NavDropdown.Item href="/articles/create">List Articles</NavDropdown.Item> */}
+                  </NavDropdown>
+                )
+              }
             </Nav>
             {
               currentUser && currentUser.loggedIn && (
@@ -58,6 +66,9 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   <Nav.Link as={Link} to="/restaurants">Restaurants</Nav.Link>
                   <Nav.Link as={Link} to="/helprequest">Help Requests</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
+
+                  <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
+
                   <Nav.Link as={Link} to="/ucsborganization">UCSB Organization</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdiningcommonsmenuitems">Menu Items</Nav.Link>

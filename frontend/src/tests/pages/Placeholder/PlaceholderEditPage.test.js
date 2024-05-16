@@ -40,5 +40,3 @@ describe("PlaceholderEditPage tests", () => {
     });
 
 });
-
-
