@@ -75,7 +75,7 @@ function UCSBDateForm({ initialContents, submitAction, buttonLabel = "Create" })
                             {...register("localDateTime", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.localDateTime && 'LocalDateTime is required. '}
+                            {errors.localDateTime && 'LocalDateTime is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

@@ -18,7 +18,6 @@ export default function RestaurantTable({
     }
 
     // Stryker disable all : hard to test for query caching
-
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
