@@ -21,7 +21,7 @@ describe("ArticlesTable tests", () => {
   const testId = "ArticlesTable";
 
   test("renders empty table correctly", () => {
-    
+
     // arrange
     const currentUser = currentUserFixtures.adminUser;
 
