@@ -12,6 +12,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 import edu.ucsb.cs156.example.WebTestCase;
 
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ActiveProfiles("integration")
@@ -22,39 +23,41 @@ public class RecommendationRequestWebIT extends WebTestCase {
         setupUser(true);
 
         page.getByText("Recommendation Request").click();
-
-        page.getByText("Create RecommendationRequest").click();
-        assertThat(page.getByText("Create New RecommendationRequest")).isVisible();
-        page.getByTestId("RecommendationRequestForm-requesterEmail").fill("cgaucho@ucsb.edu");
-        page.getByTestId("RecommendationRequestForm-professorEmail").fill("phtcon@ucsb.edu");
-        page.getByTestId("RecommendationRequestForm-explanation").fill("BS/MS");
-        page.getByTestId("RecommendationRequestForm-dateRequested").fill("2022-02-02T00:00");
-        page.getByTestId("RecommendationRequestForm-dateNeeded").fill("2022-03-02T00:00");
-        page.getByTestId("RecommendationRequestForm-done").click();
+        page.getByText("Create Recommendation Request").click();
+        assertThat(page.getByText("Create New Recommendation Request")).isVisible();
+        page.getByTestId("RecommendationRequestForm-requester_email").fill("request@gmail.com");
+        page.getByTestId("RecommendationRequestForm-professor_email").fill("prof@gmail.com");
+        page.getByTestId("RecommendationRequestForm-explanation").fill("asd");
+        page.getByTestId("RecommendationRequestForm-date_requested").fill("2024-05-03T00:12");
+        page.getByTestId("RecommendationRequestForm-date_needed").fill("2024-05-03T00:12");
         page.getByTestId("RecommendationRequestForm-submit").click();
 
-        assertThat(page.getByTestId("RecommendationRequestTable-cell-row-0-col-requesterEmail"))
-                .hasText("cgaucho@ucsb.edu");
+
+        assertThat(page.getByTestId("RecommendationRequestTable-cell-row-0-col-explanation"))
+                .hasText("asd");
 
         page.getByTestId("RecommendationRequestTable-cell-row-0-col-Edit-button").click();
-        assertThat(page.getByText("Edit RecommendationRequest")).isVisible();
-        page.getByTestId("RecommendationRequestForm-requesterEmail").fill("test@ucsb.edu");
+        assertThat(page.getByText("Edit Recommendation Request")).isVisible();
+        page.getByTestId("RecommendationRequestForm-explanation").fill("edit attempt");
         page.getByTestId("RecommendationRequestForm-submit").click();
 
-        assertThat(page.getByTestId("RecommendationRequestTable-cell-row-0-col-requesterEmail")).hasText("test@ucsb.edu");
+        assertThat(page.getByTestId("RecommendationRequestTable-cell-row-0-col-explanation")).hasText("edit attempt");
 
         page.getByTestId("RecommendationRequestTable-cell-row-0-col-Delete-button").click();
 
-        assertThat(page.getByTestId("RecommendationRequestTable-cell-row-0-col-requesterEmail")).not().isVisible();
-    }
+        assertThat(page.getByTestId("RecommendationRequestTable-cell-row-0-col-name")).not().isVisible();
+
+        }
 
     @Test
-    public void regular_user_cannot_create_recommendation_request() throws Exception {
+    public void regular_user_cannot_create_RecommendationRequest() throws Exception {
         setupUser(false);
 
         page.getByText("Recommendation Request").click();
 
-        assertThat(page.getByText("Create RecommendationRequest")).not().isVisible();
-        assertThat(page.getByTestId("RecommendationRequestTable-cell-row-0-col-requesterEmail")).not().isVisible();
+        assertThat(page.getByText("Create Recommendation Request")).not().isVisible();
+        assertThat(page.getByTestId("RecommendationRequestform-cell-row-0-col-title")).not().isVisible();
     }
 }
+
+
