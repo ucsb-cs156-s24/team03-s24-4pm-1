@@ -21,10 +21,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.time.LocalDateTime;
+
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 
+import edu.ucsb.cs156.example.entities.RecommendationRequest;
 import edu.ucsb.cs156.example.entities.Restaurant;
-import edu.ucsb.cs156.example.repositories.RestaurantRepository;
+import edu.ucsb.cs156.example.repositories.RecommendationRequestRepository;
 import edu.ucsb.cs156.example.repositories.UserRepository;
 import edu.ucsb.cs156.example.services.CurrentUserService;
 import edu.ucsb.cs156.example.services.GrantedAuthoritiesService;
@@ -36,7 +40,8 @@ import edu.ucsb.cs156.example.testconfig.TestConfig;
 @ActiveProfiles("integration")
 @Import(TestConfig.class)
 @DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
-public class RestaurantIT {
+
+public class RecommendationRequestIT {
         @Autowired
         public CurrentUserService currentUserService;
 
@@ -44,7 +49,7 @@ public class RestaurantIT {
         public GrantedAuthoritiesService grantedAuthoritiesService;
 
         @Autowired
-        RestaurantRepository restaurantRepository;
+        RecommendationRequestRepository recreqRepository;
 
         @Autowired
         public MockMvc mockMvc;
@@ -55,47 +60,31 @@ public class RestaurantIT {
         @MockBean
         UserRepository userRepository;
 
-        @WithMockUser(roles = { "USER" })
-        @Test
-        public void test_that_logged_in_user_can_get_by_id_when_the_id_exists() throws Exception {
-                // arrange
-
-                Restaurant restaurant = Restaurant.builder()
-                                .name("Taco Bell")
-                                .description("Mexican")
-                                .build();
-                                
-                restaurantRepository.save(restaurant);
-
-                // act
-                MvcResult response = mockMvc.perform(get("/api/restaurants?id=1"))
-                                .andExpect(status().isOk()).andReturn();
-
-                // assert
-                String expectedJson = mapper.writeValueAsString(restaurant);
-                String responseString = response.getResponse().getContentAsString();
-                assertEquals(expectedJson, responseString);
-        }
-
         @WithMockUser(roles = { "ADMIN", "USER" })
         @Test
-        public void an_admin_user_can_post_a_new_restaurant() throws Exception {
+        public void an_admin_user_can_post_a_new_recommendation_request() throws Exception {
                 // arrange
 
-                Restaurant restaurant1 = Restaurant.builder()
-                                .id(1L)
-                                .name("Chipotle")
-                                .description("Mexican")
-                                .build();
+            LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
+            LocalDateTime ldt2 = LocalDateTime.parse("2022-02-03T00:00:00");
 
+            RecommendationRequest rr1 = RecommendationRequest.builder()
+                            .requesterEmail("a@gmail.com")
+                            .professorEmail("p@gmail.com")
+                            .explanation("I need letter")
+                            .dateRequested(ldt1)
+                            .dateNeeded(ldt2)
+                            .done(false)
+                            .id(1)
+                            .build();
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/restaurants/post?name=Chipotle&description=Mexican")
+                                post("/api/recommendationrequests/post?requesterEmail=a@gmail.com&professorEmail=p@gmail.com&explanation=I need letter&dateRequested=2022-01-03T00:00:00&dateNeeded=2022-02-03T00:00:00&done=false")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
                 // assert
-                String expectedJson = mapper.writeValueAsString(restaurant1);
+                String expectedJson = mapper.writeValueAsString(rr1);
                 String responseString = response.getResponse().getContentAsString();
                 assertEquals(expectedJson, responseString);
         }
