@@ -18,7 +18,7 @@ import edu.ucsb.cs156.example.WebTestCase;
 @DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 public class RestaurantWebIT extends WebTestCase {
     @Test
-    public void admin_user_can_create_edit_recommendation_request() throws Exception {
+    public void admin_user_can_create_edit_delete_restaurant() throws Exception {
         setupUser(true);
 
         page.getByText("Restaurants").click();
